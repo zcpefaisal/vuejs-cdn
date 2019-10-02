@@ -15,10 +15,50 @@
 
 <body>
     <div id="vue-app">
-
+        <!-- call property and method -->
         <h1> {{ greet('morning') }} </h1>
         <p> {{ name }} </p>
         <p> {{ job }} </p>
+
+        <!-- data binding -->
+        <a v-bind:href="website">website</a>
+        <a :href="website">website</a>
+        <input type="text" v-bind:value="name" /> {{ websiteTag }}
+        <p v-html="websiteTag"> </p>
+
+        <!-- click event -->
+        <button v-on:click.once="age++">Ad year</button>
+        <button v-on:click="age--">Ad year</button>
+        <p>My age is {{age}}</p>
+
+        <button @click="add(1)">Ad year</button>
+        <button v-on:click="substruct(1)">Ad year</button>
+        <p>My age is {{age}}</p>
+
+        <button @dblclick="add(10)">Ad year</button>
+        <button v-on:dblclick="substruct(10)">Ad year</button>
+        <p>My age is {{age}}</p>
+
+        <div id="canvas" v-on:mousemove="updateXY"> {{ x }}, {{ y }}</div>
+
+
+        <!-- event modifier -->
+        <a v-on:click.prevent="click()" href="http://faisalalam.me">link</a>
+
+
+        <!-- keyboard event -->
+
+        <label>Name</label>
+        <input type="text" v-on:keyup.tab="logName" />
+
+        <label>Age</label>
+        <input type="text" v-on:keyup="logAge" />
+
+        <!-- Two way binding -->
+        <label>Two way binding</label>
+        <input type="text" v-model='salary' /> {{ salary }}
+
+
 
 
 
